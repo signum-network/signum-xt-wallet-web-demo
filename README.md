@@ -13,14 +13,15 @@ It is required that you have NodeJS (14+) installed on your machine, such you ca
 
 * Development with Live Reload (HMR)
 * Optimized, Bundled, Minified static site
-* Once cloned this repo and having NodeJS installed just hit:
+* Once cloned this repo and having NodeJS installed just:
 
-1. npm i
-2. npm run dev
-3. Open brower at "http://localhost:5173"
-4. Start hacking
+1. Access the example of your preference
+2. run `npm i`
+3. run `npm run dev`
+4. Open brower at "http://localhost:5173"
+5. Start hacking
 
-Good reasons for using Vite, can be read here
+Good reasons for using Vite, can be read [here](https://vitejs.dev/guide/why.html#the-problems)
 
 # Deployment
 If you go the modern tooling way, just run npm run build - This creates an optimized static site in the ./dist folder, which can hosted anywhere then.
