@@ -2,9 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signum XT Wallet Connection + SignumJS (Typescript)</title>
+
+    <!-- Optionally, you can import the SignumJS modules this way instead of installing and using NPM modules -->
+    <!-- Also, if you are going to import trough this way, no version is needed -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@signumjs/core/dist/signumjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@signumjs/util/dist/signumjs.util.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@signumjs/wallets/dist/signumjs.wallets.min.js"></script> -->
   </head>
 
   <body>
@@ -22,8 +29,24 @@
         >
       </h1>
 
-      <div id="connection-status-label" class="text-2xl">
+      <p id="connection-status-label" class="text-2xl">
         You are not connected to XT Wallet
+      </p>
+
+      <div class="flex items-center gap-4">
+        <p
+          class="px-4 text-xl py-2 rounded-full text-green-800 bg-green-200 font-semibold flex align-center w-max transition duration-300 ease"
+        >
+          Network Selected:
+          <span id="selected-network-label" class="ml-2">None</span>
+        </p>
+
+        <p
+          class="px-4 text-xl py-2 rounded-full text-gray-500 bg-gray-200 font-semibold flex align-center w-max transition duration-300 ease"
+        >
+          Network Required:
+          <span id="required-network-label" class="ml-2"></span>
+        </p>
       </div>
 
       <button
@@ -31,6 +54,14 @@
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
         Connect Wallet
+      </button>
+
+      <button
+        id="disconnect-wallet-button"
+        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        hidden="true"
+      >
+        Disconnect Wallet
       </button>
 
       <!-- Credits Section -->
