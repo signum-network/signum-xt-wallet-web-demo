@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signum XT Wallet Connection + SignumJS (Typescript)</title>
+  </head>
+
+  <body>
+    <main
+      class="flex h-screen flex-col items-center justify-center py-8 text-center gap-6"
+    >
+      <h1 class="text-black text-6xl font-black">
+        Welcome to
+
+        <a
+          href="https://signum.network/"
+          target="_blank"
+          class="text-blue-500 bg-clip-text underline"
+          >Signum!</a
+        >
+      </h1>
+
+      <div id="connection-status-label" class="text-2xl">
+        You are not connected to XT Wallet
+      </div>
+
+      <button
+        id="connect-wallet-button"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Connect Wallet
+      </button>
+
+      <!-- Credits Section -->
+      <footer
+        class="flex flex-row items-center gap-4 my-6 text-2xl font-bold text-gray-500 border-t-2 p-4"
+      >
+        <a href="https://signum.network/" target="_blank">
+          <img
+            src="/powered-by-signum.svg"
+            width="125"
+            alt="Powered by Signum Logo"
+          />
+        </a>
+
+        <span> + </span>
+
+        <a href="https://docs.signum.network/signum/signumjs" target="_blank">
+          <img src="/signumjs.svg" width="50" alt="SignumJS Logo" />
+        </a>
+
+        <span> + </span>
+        <a href="https://www.typescriptlang.org/" target="_blank">
+          <img
+            src="/typescript.svg"
+            width="50"
+            alt="Typescript Logo"
+            class="rounded"
+          />
+        </a>
+
+        <span> + </span>
+        <a href="https://vitejs.dev/" target="_blank">
+          <img src="/vite.svg" width="50" alt="Powered by Signum Logo" />
+        </a>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
