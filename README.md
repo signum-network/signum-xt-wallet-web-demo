@@ -1,4 +1,4 @@
-## Discover different examples of connecting your Website Signum XT Wallet
+## Discover different examples of connecting your Website with Signum XT Wallet
 All the communication with the XT Wallet is already implemented, such that the dev can focus on his dApp
 
 @signumjs/wallets is the package which provides tools to interact with wallets remotely.
