@@ -1,6 +1,10 @@
 ## Learn how you can connect your website to Signum XT Wallet
 All communication with the Signum XT Wallet is already implemented, so devs can be more productive when building their dApps.
 
+| List of Examples     |
+|----------------------|
+| Vanilla (Typescript) |
+| React (Typescript)   |
 ---------
 @signumjs/wallets is the package which provides tools to interact with wallets remotely.
 
