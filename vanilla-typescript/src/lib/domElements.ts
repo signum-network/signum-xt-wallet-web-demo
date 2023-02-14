@@ -22,3 +22,23 @@ export const connectWalletButton: HTMLElement = document.getElementById(
 export const disconnectWalletButton: HTMLElement = document.getElementById(
   "disconnect-wallet-button"
 ) as HTMLButtonElement;
+
+// Authenticated user Box Section
+export const authenticatedUserBox: HTMLElement = document.getElementById(
+  "authenticated-user-box"
+) as HTMLDivElement;
+
+// Authenticated user Box Section
+export const currentHostLabel: HTMLElement = document.getElementById(
+  "current-host-label"
+) as HTMLSpanElement;
+
+// Connected account address
+export const accountAddressLabel: HTMLElement = document.getElementById(
+  "account-address-label"
+) as HTMLSpanElement;
+
+// Connected account avatar image
+export const accountAvatarImage: HTMLImageElement = document.getElementById(
+  "account-avatar-image"
+) as HTMLImageElement;

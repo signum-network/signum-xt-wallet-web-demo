@@ -64,6 +64,35 @@
         Disconnect Wallet
       </button>
 
+      <!-- Authenticated user section -->
+      <div
+        id="authenticated-user-box"
+        class="flex flex-col gap-6 items-center"
+        style="display: none"
+      >
+        <div
+          class="flex items-center py-4 px-10 border-2 gap-4 rounded flex-wrap"
+        >
+          <img
+            id="account-avatar-image"
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/5.webp"
+            class="rounded-lg w-8 border-1"
+            alt="User Avatar"
+          />
+
+          <span id="account-address-label" class="font-bold"></span>
+        </div>
+
+        <div class="flex items-center p-4 border-2 gap-4 rounded flex-wrap">
+          Current Host:
+          <span id="current-host-label" class="font-bold"
+            >https://europe3.testnet.signum.network</span
+          >
+        </div>
+
+        <span>KLK</span>
+      </div>
+
       <!-- Credits Section -->
       <footer
         class="flex flex-row items-center gap-4 my-6 text-2xl font-bold text-gray-500 border-t-2 p-4"

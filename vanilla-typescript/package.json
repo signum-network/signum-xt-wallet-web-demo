@@ -22,6 +22,7 @@
     "@signumjs/http": "^1.0.0-rc.55",
     "@signumjs/monitor": "^1.0.0-rc.55",
     "@signumjs/util": "^1.0.0-rc.55",
-    "@signumjs/wallets": "^1.0.0-rc.55"
+    "@signumjs/wallets": "^1.0.0-rc.55",
+    "hashicon": "^0.3.0"
   }
 }

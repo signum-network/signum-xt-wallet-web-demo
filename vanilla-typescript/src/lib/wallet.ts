@@ -1,12 +1,7 @@
 import { LedgerClientFactory } from "@signumjs/core";
 import { GenericExtensionWallet } from "@signumjs/wallets";
+import { Networks } from "./networks";
 import { getReedSolomonAddress } from "./getReedSolomonAddress";
-
-// Types of Network to develop on, you decide which network you want to develop...
-export const Networks = {
-  MainNet: "Signum",
-  TestNet: "Signum-TESTNET",
-};
 
 // Here you can assign the dApp name
 const appName = "My Amazing App";
