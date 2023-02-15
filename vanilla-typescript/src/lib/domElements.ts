@@ -28,7 +28,7 @@ export const authenticatedUserBox: HTMLElement = document.getElementById(
   "authenticated-user-box"
 ) as HTMLDivElement;
 
-// Authenticated user Box Section
+// Current host label
 export const currentHostLabel: HTMLElement = document.getElementById(
   "current-host-label"
 ) as HTMLSpanElement;
@@ -42,3 +42,13 @@ export const accountAddressLabel: HTMLElement = document.getElementById(
 export const accountAvatarImage: HTMLImageElement = document.getElementById(
   "account-avatar-image"
 ) as HTMLImageElement;
+
+// Send message button
+export const sendMessageButton: HTMLElement = document.getElementById(
+  "send-message-button"
+) as HTMLButtonElement;
+
+// Send encrypted message button
+export const sendEncryptedMessageButton: HTMLElement = document.getElementById(
+  "send-encrypted-message-button"
+) as HTMLButtonElement;

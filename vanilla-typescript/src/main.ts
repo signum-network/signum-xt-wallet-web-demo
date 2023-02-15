@@ -6,6 +6,7 @@ import {
   disconnectWalletButton,
   requiredNetworkLabel,
 } from "./lib/domElements";
+import "./lib/sendMessages";
 
 // Try to let user know which Network the dApp is requiring
 requiredNetworkLabel.innerText =
