@@ -4,6 +4,7 @@ import {
   sendEncryptedMessageButton,
   successfulTransactionBox,
 } from "./domElements";
+import { Networks } from "./networks";
 
 // Send message
 sendMessageButton.addEventListener("click", async () => {
@@ -53,9 +54,14 @@ sendEncryptedMessageButton.addEventListener("click", async () => {
 });
 
 function confirmedTransactionFeedback(transactionId: string) {
+  const explorerUrl =
+    window.network === Networks.TestNet
+      ? "https://t-chain.signum.network"
+      : "https://explorer.signum.network";
+
   successfulTransactionBox.setAttribute(
     "href",
-    "https://t-chain.signum.network/tx/" + transactionId
+    explorerUrl + "/tx/" + transactionId
   );
 
   successfulTransactionBox.style.display = "flex";

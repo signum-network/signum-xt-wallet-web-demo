@@ -6,8 +6,10 @@ All communication with the Signum XT Wallet is already implemented, so devs can 
 | Vanilla (Typescript) |
 | React (Typescript)   |
 ---------
-@signumjs/wallets is the package which provides tools to interact with wallets remotely.
 
+## SignumJS
+`@signumjs/wallets` is the package which provides tools to interact with wallets remotely.
+https://github.com/signum-network/signumjs
 https://signum-network.github.io/signumjs/modules/wallets.html
 
 # Getting Started
@@ -28,7 +30,7 @@ It is required that you have NodeJS (14+) installed on your machine, such you ca
 Good reasons for using Vite, can be read [here](https://vitejs.dev/guide/why.html#the-problems)
 
 # Deployment
-If you choose the modern tooling method, just run `npm run build` - it creates an optimized static site in `./dist`, that can be hosted anywhere.
+If you choose the modern tooling method, just run `npm run build` - it creates an optimized static site in `./dist` folder, that can be hosted anywhere.
 
 # Good to know (Tips)
 SignumJS is entirely written in Typescript. Using modern tooling, i.e. decent IDEs like VSCode or WebStorm and package manager will give you full support of typing, making development with SignumJS easier and more productive.
@@ -38,6 +40,10 @@ The wallet stores the keys in an extra protected "backend" area of the extension
 ### How to choose a network to work with
 - `Signum` This network refers to MainNet, it will make your dApp compatible with only MainNet network
 - `Signum-TESTNET` This network refers to TestNet, it will make your dApp compatible with only TestNet network
+
+### Additional References
+- https://github.com/ohager/signum-xt-wallet-react-demo
+- https://github.com/ohager/signum-xt-wallet-vanilla-demo
 
 <span>
 <img src="https://user-images.githubusercontent.com/3920663/157106727-35a214b8-07bb-4c75-8c4f-c4aec072683c.svg" width="128" height="48" alt="Powered by Signum" >
