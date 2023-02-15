@@ -28,14 +28,14 @@ It is required that you have NodeJS (14+) installed on your machine, such you ca
 Good reasons for using Vite, can be read [here](https://vitejs.dev/guide/why.html#the-problems)
 
 # Deployment
-If you go the modern tooling way, just run `npm run build` - This creates an optimized static site in the `./dist` folder, which can be hosted anywhere then.
+If you choose the modern tooling method, just run `npm run build` - it creates an optimized static site in `./dist`, that can be hosted anywhere.
 
 # Good to know (Tips)
 SignumJS is entirely written in Typescript. Using modern tooling, i.e. decent IDEs like VSCode or WebStorm and package manager will give you full support of typing, making development with SignumJS easier and more productive.
 
 The wallet stores the keys in an extra protected "backend" area of the extension and never provides any secret. The keys are encrypted by the users secret he provided when installed the extension. Between a DApp and the wallet only public information like accounts public key and current selected node host is transmitted.
 
-### How yo choose a network to work with
+### How to choose a network to work with
 - `Signum` This network refers to MainNet, it will make your dApp compatible with only MainNet network
 - `Signum-TESTNET` This network refers to TestNet, it will make your dApp compatible with only TestNet network
 
