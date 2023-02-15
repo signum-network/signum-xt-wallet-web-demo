@@ -9,8 +9,9 @@ All communication with the Signum XT Wallet is already implemented, so devs can 
 
 ## SignumJS
 `@signumjs/wallets` is the package which provides tools to interact with wallets remotely.
-https://github.com/signum-network/signumjs
-https://signum-network.github.io/signumjs/modules/wallets.html
+
+- https://github.com/signum-network/signumjs
+- https://signum-network.github.io/signumjs/modules/wallets.html
 
 # Getting Started
 This project uses Vite to make development and deployment a breeze.
