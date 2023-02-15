@@ -9,15 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
     "@signumjs/contracts": "^1.0.0-rc.55",
     "@signumjs/core": "^1.0.0-rc.55",
     "@signumjs/crypto": "^1.0.0-rc.55",
     "@signumjs/http": "^1.0.0-rc.55",
     "@signumjs/util": "^1.0.0-rc.55",
     "@signumjs/wallets": "^1.0.0-rc.55",
+    "hashicon": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "zustand": "^4.3.3"
+    "react-redux": "^8.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
