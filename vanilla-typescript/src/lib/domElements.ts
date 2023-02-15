@@ -52,3 +52,8 @@ export const sendMessageButton: HTMLElement = document.getElementById(
 export const sendEncryptedMessageButton: HTMLElement = document.getElementById(
   "send-encrypted-message-button"
 ) as HTMLButtonElement;
+
+// Successful transaction box
+export const successfulTransactionBox: HTMLElement = document.getElementById(
+  "successful-transaction-box"
+) as HTMLAnchorElement;

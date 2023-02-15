@@ -7,6 +7,7 @@ import {
   currentHostLabel,
   accountAddressLabel,
   accountAvatarImage,
+  successfulTransactionBox,
 } from "./domElements";
 
 import { getAccountAvatar } from "./getAccountAvatar";
@@ -31,6 +32,7 @@ window.addEventListener("wallet-event", (event: any) => {
     connectionStatusLabel.innerText = "You are not connected to XT Wallet";
     selectedNetworkLabel.innerText = "None";
     authenticatedUserBox.style.display = "none";
+    successfulTransactionBox.style.display = "none";
     connectWalletButton.hidden = false;
     disconnectWalletButton.hidden = true;
   }
