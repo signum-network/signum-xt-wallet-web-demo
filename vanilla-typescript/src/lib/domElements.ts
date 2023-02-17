@@ -48,6 +48,11 @@ export const accountAvatarImage: HTMLImageElement = document.getElementById(
   "account-avatar-image"
 ) as HTMLImageElement;
 
+// Container of button for sending messages
+export const messageButtonContainer: HTMLElement = document.getElementById(
+  "message-buttons-container"
+) as HTMLDivElement;
+
 // Send message button
 export const sendMessageButton: HTMLElement = document.getElementById(
   "send-message-button"
