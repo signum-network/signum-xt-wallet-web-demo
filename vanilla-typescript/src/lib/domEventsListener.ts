@@ -4,6 +4,7 @@ import {
   selectedNetworkLabel,
   disconnectWalletButton,
   authenticatedUserBox,
+  watchOnlyAccountLabel,
   currentHostLabel,
   accountAddressLabel,
   accountAvatarImage,
@@ -26,6 +27,7 @@ window.addEventListener("wallet-event", (event: any) => {
     accountAvatarImage.src = getAccountAvatar();
     connectWalletButton.hidden = true;
     disconnectWalletButton.hidden = false;
+    watchOnlyAccountLabel.hidden = payload.watchOnly === true ? false : true;
   }
 
   if (action === "disconnected") {
@@ -39,6 +41,7 @@ window.addEventListener("wallet-event", (event: any) => {
 
   if (action === "accountChanged") {
     accountAddressLabel.innerText = payload.address;
+    watchOnlyAccountLabel.hidden = payload.watchOnly === true ? false : true;
     accountAvatarImage.src = getAccountAvatar();
   }
 

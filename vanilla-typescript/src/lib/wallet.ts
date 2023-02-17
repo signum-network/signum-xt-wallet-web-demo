@@ -98,6 +98,7 @@ async function handleConnectWallet() {
       publicKey: connection.publicKey,
       address: getReedSolomonAddress(connection.publicKey), // attention: address is not part of the connection!
       host: connection.currentNodeHost,
+      watchOnly: connection.watchOnly,
     });
   } catch (e: any) {
     alert(e.message);
