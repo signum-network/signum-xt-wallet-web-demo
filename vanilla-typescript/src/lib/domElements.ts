@@ -28,7 +28,7 @@ export const authenticatedUserBox: HTMLElement = document.getElementById(
   "authenticated-user-box"
 ) as HTMLDivElement;
 
-// Authenticated user Box Section
+// Watch only account label
 export const watchOnlyAccountLabel: HTMLElement = document.getElementById(
   "watch-only-account-label"
 ) as HTMLSpanElement;
