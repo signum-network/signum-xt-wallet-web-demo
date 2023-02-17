@@ -71,16 +71,28 @@
         style="display: none"
       >
         <div
-          class="flex items-center py-4 px-10 border-2 gap-4 rounded flex-wrap"
+          class="flex flex-col items-center py-4 px-10 border-2 gap-4 rounded flex-wrap"
         >
-          <img
-            id="account-avatar-image"
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/5.webp"
-            class="rounded-lg w-8 border-1"
-            alt="User Avatar"
-          />
+          <div class="flex items-center justify-center gap-4 rounded flex-wrap">
+            <img
+              id="account-avatar-image"
+              src="https://mdbcdn.b-cdn.net/img/new/avatars/5.webp"
+              class="rounded-lg w-8 border-1"
+              alt="User Avatar"
+            />
 
-          <span id="account-address-label" class="font-bold"></span>
+            <span id="account-address-label" class="font-bold"></span>
+          </div>
+
+          <span
+            id="watch-only-account-label"
+            class="bg-blue-100 rounded-lg py-5 px-6 text-base text-blue-700"
+            role="alert"
+            hidden="true"
+          >
+            Detected a <b className="ml-1">watch-only account</b>, you will not
+            be able to make transactions
+          </span>
         </div>
 
         <div class="flex items-center p-4 border-2 gap-4 rounded flex-wrap">
@@ -90,7 +102,10 @@
           >
         </div>
 
-        <div class="flex items-center px-4 gap-10 rounded flex-wrap">
+        <div
+          id="message-buttons-container"
+          class="flex items-center px-4 gap-10 rounded flex-wrap"
+        >
           <button
             id="send-message-button"
             class="px-6 py-2 border-2 border-blue-400 text-blue-400 font-medium text-lg leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"

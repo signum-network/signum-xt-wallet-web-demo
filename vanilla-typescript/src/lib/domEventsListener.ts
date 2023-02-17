@@ -4,9 +4,11 @@ import {
   selectedNetworkLabel,
   disconnectWalletButton,
   authenticatedUserBox,
+  watchOnlyAccountLabel,
   currentHostLabel,
   accountAddressLabel,
   accountAvatarImage,
+  messageButtonContainer,
   successfulTransactionBox,
 } from "./domElements";
 
@@ -26,6 +28,10 @@ window.addEventListener("wallet-event", (event: any) => {
     accountAvatarImage.src = getAccountAvatar();
     connectWalletButton.hidden = true;
     disconnectWalletButton.hidden = false;
+
+    // Events for detecting when account is watch-mode
+    messageButtonContainer.style.display = payload.watchOnly ? "none" : "flex";
+    watchOnlyAccountLabel.hidden = payload.watchOnly ? false : true;
   }
 
   if (action === "disconnected") {
@@ -40,6 +46,10 @@ window.addEventListener("wallet-event", (event: any) => {
   if (action === "accountChanged") {
     accountAddressLabel.innerText = payload.address;
     accountAvatarImage.src = getAccountAvatar();
+
+    // Events for detecting when account is watch-mode
+    messageButtonContainer.style.display = payload.watchOnly ? "none" : "flex";
+    watchOnlyAccountLabel.hidden = payload.watchOnly ? false : true;
   }
 
   if (action === "networkChanged") {

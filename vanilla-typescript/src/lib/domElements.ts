@@ -28,6 +28,11 @@ export const authenticatedUserBox: HTMLElement = document.getElementById(
   "authenticated-user-box"
 ) as HTMLDivElement;
 
+// Watch only account label
+export const watchOnlyAccountLabel: HTMLElement = document.getElementById(
+  "watch-only-account-label"
+) as HTMLSpanElement;
+
 // Current host label
 export const currentHostLabel: HTMLElement = document.getElementById(
   "current-host-label"
@@ -42,6 +47,11 @@ export const accountAddressLabel: HTMLElement = document.getElementById(
 export const accountAvatarImage: HTMLImageElement = document.getElementById(
   "account-avatar-image"
 ) as HTMLImageElement;
+
+// Container of button for sending messages
+export const messageButtonContainer: HTMLElement = document.getElementById(
+  "message-buttons-container"
+) as HTMLDivElement;
 
 // Send message button
 export const sendMessageButton: HTMLElement = document.getElementById(
