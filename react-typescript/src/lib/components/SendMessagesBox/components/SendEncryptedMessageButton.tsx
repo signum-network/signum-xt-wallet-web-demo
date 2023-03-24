@@ -5,6 +5,10 @@ import { useLedger } from "@lib/hooks/useLedger";
 import { useAccount } from "@lib/hooks/useAccount";
 import { useAppContext } from "@lib/hooks/useAppContext";
 import { useExtensionWallet } from "@lib/hooks/useExtensionWallet";
+import {
+  signStartWalletEvent,
+  signEndWalletEvent,
+} from "@lib/utils/manageWalletSignTrasactionEvent";
 
 export const SendEncryptedMessageButton = (): JSX.Element => {
   const [isSending, setIsSending] = useState(false);
@@ -28,6 +32,8 @@ export const SendEncryptedMessageButton = (): JSX.Element => {
 
       const address = Address.fromPublicKey(publicKey); // Send encrypted message to (ourselves) self-account
 
+      signStartWalletEvent();
+
       const { transactionId } = await wallet.sendEncryptedMessage({
         message: "This message is encrypted",
         recipientPublicKey: address.getPublicKey(),
@@ -40,6 +46,7 @@ export const SendEncryptedMessageButton = (): JSX.Element => {
       console.error(e);
       alert(`Error: ${e.message}`);
     } finally {
+      signEndWalletEvent();
       setIsSending(false);
     }
   }, [ledger, wallet]);

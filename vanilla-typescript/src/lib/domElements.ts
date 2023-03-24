@@ -67,3 +67,13 @@ export const sendEncryptedMessageButton: HTMLElement = document.getElementById(
 export const successfulTransactionBox: HTMLElement = document.getElementById(
   "successful-transaction-box"
 ) as HTMLAnchorElement;
+
+// Container Sign TransactionModal
+export const signTransactionModal: HTMLElement = document.getElementById(
+  "sign-transaction-modal"
+) as HTMLDivElement;
+
+// XT Wallet Store Url anchor (It is located on the footer)
+export const xtWalletStoreUrlAnchor: HTMLElement = document.getElementById(
+  "xt-wallet-store-url-anchor"
+) as HTMLAnchorElement;

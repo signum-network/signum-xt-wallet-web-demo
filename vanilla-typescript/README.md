@@ -2,6 +2,15 @@
 - `Signum` This network refers to MainNet, it will make your dApp compatible with only MainNet network
 - `Signum-TESTNET` This network refers to TestNet, it will make your dApp compatible with only TestNet network
 
+## Features on this demo
+- Pick network of your preference
+- Make transactions
+- Connect/Unlink accounts (Detect connection status)
+- Detect account changes
+- Detect node changes
+- Show dialog when user is going to sign a transaction
+- Check for compatible wallets
+
 ## How to assign the dApp name
 - Go to the file `src/lib/config.ts`
 - Modify the variable `appName` to your preference

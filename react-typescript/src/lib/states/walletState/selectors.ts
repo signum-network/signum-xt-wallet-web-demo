@@ -18,3 +18,6 @@ export const selectWalletPublicKey = (state: RootState): string =>
 
 export const selectWalletError = (state: RootState): string =>
   state.wallet.walletPublicKey;
+
+export const selectIsOpenSignTransactionModal = (state: RootState): boolean =>
+  state.wallet.isOpenSignTransactionModal;

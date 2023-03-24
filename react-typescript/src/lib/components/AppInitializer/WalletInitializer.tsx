@@ -9,7 +9,7 @@ import { useAppContext } from "@lib/hooks/useAppContext";
 import {
   requestWalletConnection,
   requestWalletDisconnection,
-} from "@lib/manageWalletConnection";
+} from "@lib/utils/manageWalletConnection";
 import { actions, selectIsWalletConnected } from "@lib/states/walletState";
 import { useAppDispatch } from "@lib/hooks/useAppDispatch";
 import { useAppSelector } from "@lib/hooks/useAppSelector";
@@ -70,6 +70,14 @@ export const WalletInitializer = () => {
       actions.setWalletError(e);
     }
 
+    function handleStartSigning() {
+      dispatch(actions.setIsOpenSignTransactionModal(true));
+    }
+
+    function handleEndSigning() {
+      dispatch(actions.setIsOpenSignTransactionModal(false));
+    }
+
     async function handleConnectWallet() {
       if (isWalletConnected) return;
 
@@ -94,11 +102,15 @@ export const WalletInitializer = () => {
 
     window.addEventListener("connect-wallet", handleConnectWallet);
     window.addEventListener("disconnect-wallet", handleDisconnectWallet);
+    window.addEventListener("wallet-sign-start", handleStartSigning);
+    window.addEventListener("wallet-sign-end", handleEndSigning);
 
     return () => {
       listener && listener.unlisten();
       window.removeEventListener("connect-wallet", handleConnectWallet);
       window.removeEventListener("disconnect-wallet", handleDisconnectWallet);
+      window.removeEventListener("wallet-sign-start", handleStartSigning);
+      window.removeEventListener("wallet-sign-end", handleEndSigning);
     };
   }, [Wallet.Extension]);
 
