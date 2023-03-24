@@ -17,13 +17,13 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
-    "@signumjs/contracts": "^1.0.0-rc.55",
-    "@signumjs/core": "^1.0.0-rc.55",
-    "@signumjs/crypto": "^1.0.0-rc.55",
-    "@signumjs/http": "^1.0.0-rc.55",
-    "@signumjs/monitor": "^1.0.0-rc.55",
-    "@signumjs/util": "^1.0.0-rc.55",
-    "@signumjs/wallets": "^1.0.0-rc.55",
+    "@signumjs/contracts": "^1.0.0-rc.63",
+    "@signumjs/core": "^1.0.0-rc.63",
+    "@signumjs/crypto": "^1.0.0-rc.63",
+    "@signumjs/http": "^1.0.0-rc.63",
+    "@signumjs/monitor": "^1.0.0-rc.63",
+    "@signumjs/util": "^1.0.0-rc.63",
+    "@signumjs/wallets": "^1.0.0-rc.63",
     "hashicon": "^0.3.0"
   }
 }
