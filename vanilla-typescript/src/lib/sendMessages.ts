@@ -3,15 +3,16 @@ import {
   sendMessageButton,
   sendEncryptedMessageButton,
   successfulTransactionBox,
+  signTransactionModal,
 } from "./domElements";
 import { Networks } from "./networks";
 
 function showSignTransactionModal() {
-  successfulTransactionBox.style.display = "flex";
+  signTransactionModal.style.display = "flex";
 }
 
 function hideSignTransactionModal() {
-  successfulTransactionBox.style.display = "none";
+  signTransactionModal.style.display = "none";
 }
 
 // Send message
