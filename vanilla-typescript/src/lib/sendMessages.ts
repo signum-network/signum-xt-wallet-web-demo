@@ -3,8 +3,17 @@ import {
   sendMessageButton,
   sendEncryptedMessageButton,
   successfulTransactionBox,
+  signTransactionModal,
 } from "./domElements";
 import { Networks } from "./networks";
+
+function showSignTransactionModal() {
+  signTransactionModal.style.display = "flex";
+}
+
+function hideSignTransactionModal() {
+  signTransactionModal.style.display = "none";
+}
 
 // Send message
 sendMessageButton.addEventListener("click", async () => {
@@ -24,12 +33,15 @@ sendMessageButton.addEventListener("click", async () => {
         feePlanck: Amount.fromSigna("0.01").getPlanck(),
       });
 
+    showSignTransactionModal();
+
     const { transactionId } = await window.wallet.confirm(
       unsignedTransactionBytes
     );
 
     confirmedTransactionFeedback(transactionId);
   } catch (error: any) {
+    hideSignTransactionModal();
     alert(error.message);
   }
 });
@@ -42,6 +54,8 @@ sendEncryptedMessageButton.addEventListener("click", async () => {
     if (!window.ledger || !walletConnection)
       throw new Error("Ledger Client not initialized");
 
+    showSignTransactionModal();
+
     const { transactionId } = await window.wallet.sendEncryptedMessage({
       message: "This message is encrypted",
       recipientPublicKey: walletConnection.publicKey,
@@ -49,6 +63,7 @@ sendEncryptedMessageButton.addEventListener("click", async () => {
 
     confirmedTransactionFeedback(transactionId);
   } catch (error: any) {
+    hideSignTransactionModal();
     alert(error.message);
   }
 });

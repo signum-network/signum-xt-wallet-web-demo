@@ -7,6 +7,7 @@ export interface WalletState {
   isWalletConnected: boolean;
   watchOnly: boolean;
   walletError?: ExtensionWalletError;
+  isOpenSignTransactionModal: boolean;
 }
 
 const initialState: WalletState = {
@@ -15,6 +16,7 @@ const initialState: WalletState = {
   isWalletConnected: false,
   watchOnly: false,
   walletError: undefined,
+  isOpenSignTransactionModal: false,
 };
 
 export const walletSlice = createSlice({
@@ -35,6 +37,9 @@ export const walletSlice = createSlice({
     },
     setWalletError: (state, action: PayloadAction<ExtensionWalletError>) => {
       state.walletError = action.payload;
+    },
+    setIsOpenSignTransactionModal: (state, action: PayloadAction<boolean>) => {
+      state.isOpenSignTransactionModal = action.payload;
     },
   },
 });

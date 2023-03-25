@@ -14,7 +14,7 @@ window.ledger = null;
 // Here you can assign on which network you want to work
 window.network = Networks.TestNet;
 
-let walletListener: any = null;
+let connectionListener: any = null;
 
 // This will be the ledger which will be used for interacting with a Signum Node
 function createLedgerClient(nodeHost: string) {
@@ -80,9 +80,9 @@ async function handleConnectWallet() {
       networkName: Networks.TestNet,
     });
 
-    if (walletListener) walletListener.unlisten();
+    if (connectionListener) connectionListener.unlisten();
 
-    walletListener = connection.listen({
+    connectionListener = connection.listen({
       onNetworkChanged: onNetworkChange,
       onAccountChanged: onAccountChange,
       onPermissionRemoved: onPermissionOrAccountRemoval,
@@ -110,7 +110,7 @@ async function handleDisconnectWallet() {
   window.walletConnection = null;
   window.ledger = null;
   dispatchWalletEvent("disconnected", {});
-  walletListener.unlisten();
+  connectionListener.unlisten();
 }
 
 export async function initWallet() {

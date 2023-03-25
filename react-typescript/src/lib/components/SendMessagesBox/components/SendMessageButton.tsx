@@ -6,6 +6,10 @@ import { useLedger } from "@lib/hooks/useLedger";
 import { useAccount } from "@lib/hooks/useAccount";
 import { useAppContext } from "@lib/hooks/useAppContext";
 import { useExtensionWallet } from "@lib/hooks/useExtensionWallet";
+import {
+  signStartWalletEvent,
+  signEndWalletEvent,
+} from "@lib/utils/manageWalletSignTrasactionEvent";
 
 export const SendMessageButton = (): JSX.Element => {
   const [isSending, setIsSending] = useState(false);
@@ -35,6 +39,8 @@ export const SendMessageButton = (): JSX.Element => {
         recipientId: accountId, // Send message to (ourselves) self-account
       })) as UnsignedTransaction;
 
+      signStartWalletEvent();
+
       const { transactionId } = await wallet.confirm(unsignedTransactionBytes);
 
       setTransactionId(transactionId);
@@ -44,6 +50,7 @@ export const SendMessageButton = (): JSX.Element => {
       console.error(e);
       alert(`Error: ${e.message}`);
     } finally {
+      signEndWalletEvent();
       setIsSending(false);
     }
   }, [ledger, wallet]);

@@ -5,7 +5,9 @@ import {
   connectWalletButton,
   disconnectWalletButton,
   requiredNetworkLabel,
+  xtWalletStoreUrlAnchor,
 } from "./lib/domElements";
+import { xtWalletStoreUrl } from "./lib/xtWalletStoreUrl";
 import "./lib/sendMessages";
 
 // Try to let user know which Network the dApp is requiring
@@ -21,3 +23,6 @@ connectWalletButton.addEventListener("click", () =>
 disconnectWalletButton.addEventListener("click", () =>
   window.dispatchEvent(new Event("wallet-disconnect"))
 );
+
+// Assign XT Wallet Store URL (This is just used for the XT Wallet <a></a> element)
+xtWalletStoreUrlAnchor.setAttribute("href", xtWalletStoreUrl);

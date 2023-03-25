@@ -4,7 +4,7 @@ import { selectWalletState } from "@lib/states/walletState";
 import {
   requestWalletConnection,
   requestWalletDisconnection,
-} from "@lib/manageWalletConnection";
+} from "@lib/utils/manageWalletConnection";
 
 export const ConnectionManager = (): JSX.Element => {
   const { Ledger } = useAppContext();
