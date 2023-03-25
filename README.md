@@ -16,7 +16,7 @@ All communication with the Signum XT Wallet is already implemented, so devs can 
 # Getting Started
 This project uses Vite to make development and deployment a breeze.
 
-It is required that you have NodeJS (14+) installed on your machine, such you can take full advantage of
+It is required that you have NodeJS (16+) installed on your machine, such you can take full advantage of
 
 * Development with Live Reload (HMR)
 * Optimized, Bundled, Minified static site
