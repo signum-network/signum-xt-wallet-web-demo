@@ -3,6 +3,7 @@ All communication with the Signum XT Wallet is already implemented, so devs can 
 
 | List of Examples     |
 |----------------------|
+| Vanilla Javascript   |
 | Vanilla (Typescript) |
 | React (Typescript)   |
 ---------
