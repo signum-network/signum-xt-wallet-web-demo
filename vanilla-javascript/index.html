@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signum XT Wallet Connection + SignumJS</title>
+
+    <!-- Optionally, you can import the SignumJS modules this way instead of installing and using NPM modules -->
+    <!-- Also, if you are going to import trough this way, no version is needed -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@signumjs/core/dist/signumjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@signumjs/util/dist/signumjs.util.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@signumjs/wallets/dist/signumjs.wallets.min.js"></script> -->
+  </head>
+
+  <body>
+    <main
+      class="flex h-screen flex-col items-center justify-center py-8 text-center gap-6"
+    >
+      <h1 class="text-black text-6xl font-black">
+        Welcome to
+
+        <a
+          href="https://signum.network/"
+          target="_blank"
+          class="text-blue-500 bg-clip-text underline"
+          >Signum!</a
+        >
+      </h1>
+
+      <p id="connection-status-label" class="text-2xl">
+        You are not connected to XT Wallet
+      </p>
+
+      <div class="flex items-center gap-4">
+        <p
+          class="px-4 text-xl py-2 rounded-full text-green-800 bg-green-200 font-semibold flex align-center w-max transition duration-300 ease"
+        >
+          Network Selected:
+          <span id="selected-network-label" class="ml-2">None</span>
+        </p>
+
+        <p
+          class="px-4 text-xl py-2 rounded-full text-gray-500 bg-gray-200 font-semibold flex align-center w-max transition duration-300 ease"
+        >
+          Network Required:
+          <span id="required-network-label" class="ml-2"></span>
+        </p>
+      </div>
+
+      <button
+        id="connect-wallet-button"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Connect Wallet
+      </button>
+
+      <button
+        id="disconnect-wallet-button"
+        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        hidden="true"
+      >
+        Disconnect Wallet
+      </button>
+
+      <!-- Authenticated user section -->
+      <div
+        id="authenticated-user-box"
+        class="flex flex-col gap-6 items-center"
+        style="display: none"
+      >
+        <div
+          class="flex flex-col items-center py-4 px-10 border-2 gap-4 rounded flex-wrap"
+        >
+          <div class="flex items-center justify-center gap-4 rounded flex-wrap">
+            <img
+              id="account-avatar-image"
+              src="https://mdbcdn.b-cdn.net/img/new/avatars/5.webp"
+              class="rounded-lg w-8 border-1"
+              alt="User Avatar"
+            />
+
+            <span id="account-address-label" class="font-bold"></span>
+          </div>
+
+          <span
+            id="watch-only-account-label"
+            class="bg-blue-100 rounded-lg py-5 px-6 text-base text-blue-700"
+            role="alert"
+            hidden="true"
+          >
+            Detected a <b class="ml-1">watch-only account</b>, you will not be
+            able to make transactions
+          </span>
+        </div>
+
+        <div class="flex items-center p-4 border-2 gap-4 rounded flex-wrap">
+          Current Host:
+          <span id="current-host-label" class="font-bold"
+            >https://europe3.testnet.signum.network</span
+          >
+        </div>
+
+        <div
+          id="message-buttons-container"
+          class="flex items-center px-4 gap-10 rounded flex-wrap"
+        >
+          <button
+            id="send-message-button"
+            class="px-6 py-2 border-2 border-blue-400 text-blue-400 font-medium text-lg leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+          >
+            Send a TEST Message
+          </button>
+
+          <button
+            id="send-encrypted-message-button"
+            class="px-6 py-2 border-2 border-green-600 text-green-600 font-medium text-lg leading-tight rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+          >
+            🔒 Send an Encrypted Message
+          </button>
+        </div>
+
+        <a
+          id="successful-transaction-box"
+          target="_blank"
+          class="bg-blue-100 rounded-lg py-5 px-6 mb-4 text-base text-blue-700 cursor-pointer"
+          role="alert"
+          style="display: none"
+        >
+          Successfull Transaction:
+          <span class="underline ml-2">See Transaction on Explorer</span>
+        </a>
+      </div>
+
+      <!-- Sign Transaction Modal -->
+      <div id="sign-transaction-modal" style="display: none">
+        <div
+          class="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+        >
+          <div class="relative w-auto my-6 mx-auto max-w-lg">
+            <div
+              class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none"
+            >
+              <div class="relative p-6 flex-auto justify-center items-center">
+                <p class="mb-2 text-2xl font-bold text-center">
+                  Please sign the message in your wallet to continue
+                </p>
+
+                <p class="mb-4 text-lg text-center text-slate-500">
+                  We need this signature to verify that you are the owner of
+                  this Signum account.
+                </p>
+
+                <div role="status" class="flex justify-center mb-4">
+                  <svg
+                    aria-hidden="true"
+                    class="w-16 h-16 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                    viewBox="0 0 100 101"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                      fill="currentFill"
+                    />
+                  </svg>
+                  <span class="sr-only">Loading...</span>
+                </div>
+
+                <div
+                  class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3"
+                  role="alert"
+                >
+                  <svg
+                    class="fill-current w-4 h-4 mr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z"
+                    />
+                  </svg>
+
+                  <p>
+                    We will never own your private keys and cannot access your
+                    funds without your confirmation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="opacity-75 fixed inset-0 z-40 bg-black"></div>
+      </div>
+
+      <!-- Credits Section -->
+      <footer
+        class="flex flex-row items-center gap-4 mb-6 text-2xl font-bold text-gray-500 border-t-2 p-4"
+      >
+        <a href="https://signum.network/" target="_blank">
+          <img
+            src="/powered-by-signum.svg"
+            width="125"
+            alt="Powered by Signum Logo"
+          />
+        </a>
+
+        <span> + </span>
+        <a href="https://docs.signum.network/signum/signumjs" target="_blank">
+          <img src="/signumjs.svg" width="50" alt="SignumJS Logo" />
+        </a>
+
+        <span> + </span>
+        <a href="https://vitejs.dev/" target="_blank">
+          <img src="/vite.svg" width="50" alt="Powered by Signum Logo" />
+        </a>
+
+        <span> + </span>
+        <a
+          href="https://github.com/signum-network/signum-xt-wallet-web-demo"
+          target="_blank"
+        >
+          <img src="/github-mark.svg" width="50" alt="Github Repository" />
+        </a>
+
+        <span> + </span>
+        <a id="xt-wallet-store-url-anchor" href="" target="_blank">
+          <img
+            src="/xt-wallet-logo.png"
+            width="75"
+            alt="Signum XT Wallet Logo"
+          />
+        </a>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
