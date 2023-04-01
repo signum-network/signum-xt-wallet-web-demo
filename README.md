@@ -1,11 +1,11 @@
 ## Learn how you can connect your website to Signum XT Wallet
 All communication with the Signum XT Wallet is already implemented, so devs can be more productive when building their dApps.
 
-| List of Examples     |
-|----------------------|
-| Vanilla Javascript   |
-| Vanilla (Typescript) |
-| React (Typescript)   |
+| List of Examples     | Demo URL                                                              |
+|----------------------|-----------------------------------------------------------------------|
+| Vanilla Javascript   | [View Demo](https://xt-wallet-web-demo-vanilla.pages.dev/)            |
+| Vanilla (Typescript) | [View Demo](https://xt-wallet-web-demo-vanilla-typescript.pages.dev/) |
+| React (Typescript)   | [View Demo](https://xt-wallet-web-demo-react-typescript.pages.dev/)   |
 ---------
 
 ## SignumJS
