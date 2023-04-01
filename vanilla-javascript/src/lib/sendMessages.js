@@ -40,7 +40,7 @@ sendMessageButton.addEventListener("click", async () => {
     );
 
     confirmedTransactionFeedback(transactionId);
-  } catch (error: any) {
+  } catch (error) {
     alert(error.message);
   } finally {
     hideSignTransactionModal();
@@ -63,14 +63,14 @@ sendEncryptedMessageButton.addEventListener("click", async () => {
     });
 
     confirmedTransactionFeedback(transactionId);
-  } catch (error: any) {
+  } catch (error) {
     alert(error.message);
   } finally {
     hideSignTransactionModal();
   }
 });
 
-function confirmedTransactionFeedback(transactionId: string) {
+function confirmedTransactionFeedback(transactionId) {
   const explorerUrl =
     window.network === Networks.TestNet
       ? "https://t-chain.signum.network"
