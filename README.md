@@ -3,9 +3,9 @@ All communication with the Signum XT Wallet is already implemented, so devs can 
 
 | List of Examples     | Demo URL                                                              |
 |----------------------|-----------------------------------------------------------------------|
-| Vanilla Javascript   | [View Demo](https://xt-wallet-web-demo-vanilla.pages.dev/)            |
-| Vanilla (Typescript) | [View Demo](https://xt-wallet-web-demo-vanilla-typescript.pages.dev/) |
-| React (Typescript)   | [View Demo](https://xt-wallet-web-demo-react-typescript.pages.dev/)   |
+| Vanilla Javascript   | [View Demo](https://xt-wallet-web-demo-vanilla.vercel.app/)            |
+| Vanilla (Typescript) | [View Demo](https://xt-wallet-web-demo-vanilla-typescript.vercel.app/) |
+| React (Typescript)   | [View Demo](https://xt-wallet-web-demo-react-typescript.vercel.app/)   |
 ---------
 
 ## SignumJS
